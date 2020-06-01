@@ -1,0 +1,41 @@
+.content
+{
+    text-align:center;
+}
+
+.total
+{
+  width: 30%;
+  padding:  10px 10px 10px 10px;
+  border: 1px solid #616060;
+  background-color: #333;
+  box-shadow: 10px 10px 5px #333;
+  margin: auto;
+  text-align:center;
+
+  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=50)";       /* IE 8 */
+  filter: alpha(opacity=50);  /* IE 5-7 */
+  -moz-opacity: 0.7;          /* Netscape */
+  -khtml-opacity: 0.7;        /* Safari 1.x */
+  opacity: 0.7;               /* Good browsers */
+}
+
+.from_to
+{
+    padding: 30px;
+}
+
+
+@media only screen and (max-width: 600px) {
+  .total {
+    width: 90%;
+  }
+}
+
+
+
+
+
+
+
+

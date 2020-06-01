@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+
+{% block head_main %}
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='/css/events.css') }}">
+    <link href='https://fonts.googleapis.com/css?family=Aclonica' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Oxygen' rel='stylesheet' type='text/css'>
+
+{% endblock %}
+
+
+{% block data %}
+
+    {% for item in output_event %}
+        <div class="wrap" style="font-family:Electrolize">
+            <h5 style = "color:#c3c3c3;"> Event Name:&nbsp;&nbsp;&nbsp; {{ item[0] }}</h5>
+            <h5 style = "color:#c3c3c3;"> Paid By:&nbsp;&nbsp;&nbsp; {{ item[1].title() }}</h5>
+            <h5 style = "color:#c3c3c3;"> Amount:&nbsp;&nbsp;&nbsp; {{ item[2] }}</h5>
+        </div>
+<br>
+<br>
+
+    {%endfor%}
+
+{% endblock %}

@@ -1,0 +1,60 @@
+{% extends "base.html" %}
+
+{% block head_main %}
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='/css/activities.css') }}">
+    <link href='https://fonts.googleapis.com/css?family=Aclonica' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Oxygen' rel='stylesheet' type='text/css'>
+
+{% endblock %}
+
+
+{% block data %}
+    <div class="container">
+      <form action="" method="POST" AUTOCOMPLETE="off">
+        <div class="form-group">
+          <label for="name" style="font-family:Electrolize;color:#d1d1d1;">Bill name:</label>
+          <input
+            type="text"
+            name="name"
+            id="name"
+            class="form-control"
+            placeholder="Enter the Bill name"
+          />
+        </div>
+        <div class="form-group">
+          <label for="paidby" style="font-family:Electrolize;color:#d1d1d1;">Paid By:</label>
+          <select id="paidby" name="paidby" class="form-control" style="font-family:Electrolize;">
+              {% if users %}
+                  {% for user in users  %}
+                      <option value="{{ user }}">{{ user.title() }}</option>
+                  {%endfor%}
+              {%endif%}
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="amount" style="font-family:Electrolize;color:#d1d1d1;">Amount:</label>
+          <input
+            type="text"
+            name="amount"
+            id="amount"
+            class="form-control"
+            placeholder="Enter the Amount"
+          />
+        </div>
+         <div class="form-group" style="font-family:Electrolize;color:#d1d1d1;">
+              <p style="font-size:120%;">Share among:</p>
+              {% if users %}
+                  {% for user in users %}
+                              <input  type="checkbox" id="{{ user }}" name="share" value="{{ user }}">
+                              <label class="input-checkbox" for="{{ user }}"> {{ user.title() }}</label><br>
+                  {%endfor%}
+            {%endif%}
+         </div>
+
+          <div class="buttons">
+              <input class="submit-button" style="text-align:center;font-family:Electrolize;color:#222;" type="submit" value="Submit" />
+          </div>
+      </form>
+    </div>
+
+{% endblock %}

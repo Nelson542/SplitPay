@@ -28,6 +28,7 @@ def home():
 def signup():
     if request.method == 'POST':
         username = request.form['username']
+        username = username.title()
         password = request.form['password']
 
         users = retrieveUsers()
@@ -50,6 +51,7 @@ def signup():
 def login():
     if request.method == 'POST':
         username_login = request.form['username']
+        username_login = username_login.title()
         password_login = request.form['password']
 
         con = sql.connect("friends.db")

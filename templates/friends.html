@@ -10,54 +10,54 @@
 
 {% block data %}
 
-<h1 style="font-family:Electrolize;color:#222;font-size:40px;padding-top:10px;"> Hi, {{ user[0].title() }} ! </h1>
+<h1 style="font-family:Electrolize;color:#222;padding-top:10px;" class="welcome"> Hi, {{ user[0].title() }} ! </h1>
         <div class="content" style="font-family:Electrolize;">
 
             <div class="total">
                 {% for item in balance %}
                           {% if item[0] > 0 %}
-                            <h4 style = "color:#c3c3c3;"> Total balance:</h4> <h4 style = "color:#1eff00;font-family:Oxygen;">{{ '%0.2f'| format(item[0]|float) }} Rupees</h4>
+                            <h4 style = "color:#c3c3c3;"> Total balance:</h4> <h4 style = "color:#1eff00;font-family:Oxygen;">{{ item[0]|int }} Rupees</h4>
                           {% else %}
-                            <h4 style = "color:#c3c3c3;"> Total balance:</h4> <h4 style = "color:#ff1500;font-family:Oxygen;">{{ '%0.2f'| format(item[0]|float|abs)}}  Rupees</h4>
+                            <h4 style = "color:#c3c3c3;"> Total balance:</h4> <h4 style = "color:#ff1500;font-family:Oxygen;">{{ item[0]|int|abs }}  Rupees</h4>
                           {% endif %}
                 {% endfor %}
             </div>
 
             <div class="from_to" style = "font-family:Oxygen;">
                 {% if receive_from %}
-                    <h5 style = "color:#c3c3c3;padding:20px;">You should receive {{ '%0.2f'| format(diff_rf|float) }} Rupees from {{ receive_from.title() }}</h5>
+                    <h5 style = "color:#c3c3c3;padding:20px;">You should receive {{ diff_rf|int }} Rupees from {{ receive_from.title() }}</h5>
                 {% endif %}
 
 
                 {% if pay_to %}
-                    <h5 style = "color:#c3c3c3;padding:20px;">You should pay {{ '%0.2f'| format(diff_pt|float) }} Rupees to {{ pay_to.title() }}</h5>
+                    <h5 style = "color:#c3c3c3;padding:20px;">You should pay {{ diff_pt|int }} Rupees to {{ pay_to.title() }}</h5>
                 {% endif %}
 
 
                 {% if receive_output %}
                     {% for key,value in receive_output.items() %}
-                        <h5 style = "color:#c3c3c3;padding:20px;">You should receive {{ '%0.2f'| format(value|float) }} Rupees from {{ key.title() }}</h5>
+                        <h5 style = "color:#c3c3c3;padding:20px;">You should receive {{ value|int }} Rupees from {{ key.title() }}</h5>
                     {% endfor %}
                 {% endif %}
 
 
                 {% if pay_output %}
                     {% for key,value in pay_output.items() %}
-                        <h5 style = "color:#c3c3c3;padding:20px;">You should pay {{ '%0.2f'| format(value|float) }} Rupees to {{ key.title() }}</h5>
+                        <h5 style = "color:#c3c3c3;padding:20px;">You should pay {{ value|int }} Rupees to {{ key.title() }}</h5>
                     {% endfor %}
                 {% endif %}
 
 
                 {% if receive_output_pop %}
                     {% for key,value in receive_output_pop.items() %}
-                        <h5 style = "color:#c3c3c3;padding:20px;">You should receive {{ '%0.2f'| format(value|float) }} Rupees from {{ key.title() }}</h5>
+                        <h5 style = "color:#c3c3c3;padding:20px;">You should receive {{ value|int }} Rupees from {{ key.title() }}</h5>
                     {% endfor %}
                 {% endif %}
 
 
                 {% if pay_output_pop %}
                     {% for key,value in pay_output_pop.items() %}
-                        <h5 style = "color:#c3c3c3;padding:20px;">You should pay {{ '%0.2f'| format(value|float) }} Rupees to {{ key.title() }}</h5>
+                        <h5 style = "color:#c3c3c3;padding:20px;">You should pay {{ value|int }} Rupees to {{ key.title() }}</h5>
                     {% endfor %}
                 {% endif %}
 
@@ -66,9 +66,9 @@
                     {% for key,value in res.items() %}
                         {% if value != 0  %}
                             {% if value > 0  %}
-                                <h5 style = "color:#c3c3c3;padding:20px;">You should receive {{ '%0.2f'| format(value|float) }} Rupees from {{ key.title() }}</h5>
+                                <h5 style = "color:#c3c3c3;padding:20px;">You should receive {{ value|int }} Rupees from {{ key.title() }}</h5>
                             {% else %}
-                                <h5 style = "color:#c3c3c3;padding:20px;">You should pay {{ '%0.2f'| format(value|float|abs) }} Rupees to {{ key.title() }}</h5>
+                                <h5 style = "color:#c3c3c3;padding:20px;">You should pay {{ value|int|abs }} Rupees to {{ key.title() }}</h5>
                             {% endif %}
                         {% endif %}
                     {% endfor %}
